@@ -49,7 +49,7 @@ class ReservationController extends Controller
             $reservation->renter_id = $renterId;
             $reservation->vehicle_id = $vehicleId;
             $reservation->save();
-            // Mail::to($email)->send(new ReservationConfirmation($vehicle, $renter));
+            Mail::to($email)->send(new ReservationConfirmation($vehicle, $renter));
 
             return redirect()->route('renter.dashboard')->with('success', 'Reservation booked successfully.');
         } catch (\Exception $e) {
