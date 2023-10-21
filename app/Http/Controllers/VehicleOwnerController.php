@@ -27,12 +27,4 @@ class VehicleownerController extends Controller
         return view('owner/dashboard', compact('data'));
     }
 
-
-    public function getCarData()
-    {
-        $data = Vehicle::all();
-        return response()->json($data);
-
-    }
-
 }

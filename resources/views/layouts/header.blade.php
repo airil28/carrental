@@ -13,6 +13,10 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- Add these lines in your HTML to include Bootstrap CSS and JavaScript -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
@@ -30,9 +34,12 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
     @if (Auth::user()->role =='renter')
-        <div class="text-bold">RENTER DASHBOARD</div>
+        <div class="text-bold">RENTER PAGE</div>
+        {{-- <a href="#" class="btn btn-secondary text-white mx-2">Car Reservation List</a> --}}
+        {{-- <a href="{{ route('reservation') }}" class="btn btn-secondary text-white mx-2">Reserve Now</a> --}}
+
         @else
-        <div class="font-bold">VEHICLE OWNER DASHBOARD</div>
+        <div class="font-bold">VEHICLE OWNER PAGE</div>
     @endif
 
         </ul>
@@ -56,7 +63,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->name }} ({{ Auth::user()->role }})
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

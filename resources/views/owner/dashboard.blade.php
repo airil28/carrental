@@ -13,10 +13,14 @@
             {{ session('error') }}
         </div>
     @endif
+    <div class="d-flex justify-content-between">
+        <a href="{{ route('show-reservation') }}" class="btn btn-warning m-2">Confirm Payment</a>
 
-    <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#addCarModal">
-        Add Vehicle
-    </button>
+        <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#addCarModal">
+            Add Vehicle
+        </button>
+    </div>
+
       <div class="modal fade" id="addCarModal" tabindex="-1" aria-labelledby="addCarModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
